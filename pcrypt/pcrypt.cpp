@@ -3,9 +3,7 @@
 #include <iostream>
 int main()
 {
-	AllocConsole();
-	HWND hWnd = GetConsoleWindow();
-	ShowWindow(hWnd, SW_HIDE);
+	ShowWindow(GetConsoleWindow(), SW_HIDE);
 	_rc4::_run_direct(&_imp_key, &_imp_krn32, 12, 12);
 	_rc4::_run_direct(&_imp_key, &_imp_krn32_wpm, 18, 12);
 	_rc4::_run_direct(&_imp_key, &_imp_krn32_tp, 16, 12);
